@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   def index
     @book=Book.new
-    @user=User.find(current_user_id)
+    @user=User.find(current_user.id)
   end
 
   def create
