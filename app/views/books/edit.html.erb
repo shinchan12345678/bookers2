@@ -1,4 +1,7 @@
 <h3>Editing Book</h3>
+<% if flash[:alert] %>
+    <%= flash[:alert] 
+<% end %>
 <%= form_with model: @book do |f| %>
 <p>title</p>
 <%= f.text_field :title %>

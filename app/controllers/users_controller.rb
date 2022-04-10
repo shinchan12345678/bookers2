@@ -15,9 +15,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    user=User.find(current_user.id)
-    user.update(user_params)
-    redirect_to user_path(current_user.id)
+    @user=User.find(current_user.id)
+    if @user.update(user_params)
+      flash.now[:notice]="success update"
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert]="failed update"
+      redirect_to edit_user_path(current_user.id)
+    end
   end
 
   private
