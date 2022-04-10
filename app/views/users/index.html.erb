@@ -23,10 +23,9 @@
 <div>
   <h3>Users</h3>
   <p>title</p>
-  <% @users.each do |user| %>
-    <%= image_tag user.get_image %>
-    <p><%= user.name %></p>
-    <p><%= user.introduction %></p>
-    <p><%= link_to "show",user_path(user.id) %></p>
-  <% end %>
+    <% @users.each do |user| %>
+      <%= image_tag user.get_image %>
+      <p><%= link_to user.name,user_path(user.id) %></p>
+      <p><%= user.introduction %></p>
+    <% end %>
 </div>

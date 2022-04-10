@@ -1,0 +1,14 @@
+<h3>Userinfo</h3>
+<div>
+<%= form_with model: @user do |f| %>
+<!--< form_with model: User.new do |f| %>-->
+  <%= f.file_field :imege %>
+  <%= f.text_field :name %>
+  <%= f.text_field :introduction %>
+  <%= f.submit "Update User" %>
+<% end %>
+</div>
+
+<div>
+  <%= link_to "back",user_path(current_user.id) %>
+</div>

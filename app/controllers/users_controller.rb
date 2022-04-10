@@ -5,9 +5,16 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user=User.find(params[:id])
+    @book=Book.new
+    @books=@user.books
+  end
+
+  def edit
+    @user=User.find(current_user.id)
   end
   
-  def edit
+  def update
   end
 
 end
