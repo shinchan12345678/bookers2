@@ -19,7 +19,7 @@
         <li><%= link_to "Books",books_path %></li>
         <li><%= link_to "Users",users_path %></li>
         <!--user_controllerにてshowaction定義後、path修正-->
-        <li><%= link_to "Home",root_path %></li>
+        <li><%= link_to "Home",user_path(current_user.id) %></li>
       <% else %>
         <li> <%= link_to "Sign_in",new_user_session_path %></li>
         <li><%= link_to "Sign_up",new_user_registration_path %></li>

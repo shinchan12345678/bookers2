@@ -2,7 +2,7 @@
 <div>
 <%= form_with model: @user do |f| %>
 <!--< form_with model: User.new do |f| %>-->
-  <%= f.file_field :imege %>
+  <%= f.file_field :image %>
   <%= f.text_field :name %>
   <%= f.text_field :introduction %>
   <%= f.submit "Update User" %>

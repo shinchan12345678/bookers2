@@ -18,6 +18,14 @@ class BooksController < ApplicationController
     @user=User.find(@book.user_id)
   end
 
+  
+  def edit
+    
+  end
+  
+  def update
+  end
+  
   def destroy
   end
 
