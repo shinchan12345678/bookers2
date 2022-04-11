@@ -4,7 +4,7 @@
   <div><%= image_tag @user.get_image %></div>
   <p><%= @user.name %></p>
   <p><%= @user.introduction %></p>
-  <p><%= link_to "edit",edit_user_path(current_user) %></p>
+  <p><%= link_to "edit",edit_user_path(@user.id) %></p>
 </div>
 
 

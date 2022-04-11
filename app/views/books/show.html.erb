@@ -5,7 +5,7 @@
   <div><%= image_tag @user.get_image %></div>
   <p><%= @user.name %></p>
   <p><%= @user.introduction %></p>
-  <p><%= link_to "edit",edit_user_path(current_user) %></p>
+  <p><%= link_to "edit",edit_user_path(@user.id) %></p>
 </div>
 
 
@@ -26,6 +26,8 @@
     <%= image_tag @book.user.get_image %>
     <p><%= @book.title %></p>
     <p><%= @book.opinion %></p>
-    <p><%= link_to "destroy",method: :destroy %></p>
-    <p><%= link_to "edit",edit_book_path(@book) %></p>
+    <% if @book.user.id==current_user.id %>
+      <p><%= link_to "destroy",method: :destroy %></p>
+      <p><%= link_to "edit",edit_book_path(@book) %></p>
+    <% end %>
 </div>

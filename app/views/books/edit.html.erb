@@ -1,13 +1,12 @@
 <h3>Editing Book</h3>
-    <% if @book.errors.any? %>
+<% if @book.errors.any? %>
       <p><%= @book.errors.count %>件のエラーが発生しました</p>
       <ul>
         <% @book.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
       </ul>
-    <% end %>
-<p>Find me in a
+<% end %>
 <%= form_with model: @book do |f| %>
 <p>title</p>
 <%= f.text_field :title %>
