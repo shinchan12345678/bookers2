@@ -2,12 +2,14 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--##https://qiita.com/ryounagaoka/items/045b2808a5ed43f96607-->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/4ac72d4f08.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -21,7 +23,7 @@
         <!--user_controllerにてshowaction定義後、path修正-->
         <li><%= link_to "Home",user_path(current_user.id) %></li>
       <% else %>
-        <li> <%= link_to "Sign_in",new_user_session_path %></li>
+        <li> <%= link_to "Log in",new_user_session_path %></li>
         <li><%= link_to "Sign_up",new_user_registration_path %></li>
         <li><%= link_to "About",about_path %></li>
         <li><%= link_to "Home",root_path %></li>
@@ -33,8 +35,10 @@
     <% end %>
     <%= yield %>
     <footer>
-      <div>
-        <p>CopyRight Infratop.inc</p>
+      <div class="container mt-5">
+        <div class="row">
+          <p class="mx-auto">CopyRight Infratop.inc</p>
+        </div>
       </div>
     </footer>
   </body>
