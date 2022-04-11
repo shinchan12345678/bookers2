@@ -2,7 +2,7 @@
 
 <div>
   <h3>User info</h3>
-  <div><%= image_tag @user.get_image %></div>
+  <div><%= image_tag @user.get_profile_image %></div>
   <p><%= @user.name %></p>
   <p><%= @user.introduction %></p>
   <p><%= link_to "edit",edit_user_path(@user.id) %></p>
@@ -23,7 +23,7 @@
 <div>
   <h3>Books</h3>
   <p>title</p>
-    <%= image_tag @book.user.get_image %>
+    <%= image_tag @book.user.get_profile_image %>
     <p><%= @book.title %></p>
     <p><%= @book.opinion %></p>
     <% if @book.user.id==current_user.id %>
