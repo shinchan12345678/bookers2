@@ -43,8 +43,10 @@
             <%= link_to books_path do %>
             <span class='nav-link text-light'>
               <!--なぜか本のアイコンを読み込まない-->
-              <!--<i class="fa-solid fa-book-arrow-right"></i>-->
-              <i class="fa-solid fa-users"></i> Books
+              <!--<i class="fa-solid fa-book-arrow-right"></i> Books-->
+              <!--<i class="fa-solid fa-books"></i> Books-->
+              <i class="fa-solid fa-bookmark"></i> Books
+              <!--<i class="fa-solid fa-users"></i> Books-->
               <!--<i class="fa-solid fa-book-blank"></i> Books-->
             </span>
             <% end %>
@@ -94,7 +96,29 @@
     <% flash.each do |key,value| %>
       <%= content_tag(:div,value,class: "#{key}") %>
     <% end %>
-    <%= yield %>
+
+
+    <% if user_signed_in? %>
+      <% unless request.path==root_path %>
+      <!--##参考-->
+      <!--https://qiita.com/Yohei_Shiina/items/ed39dfd74895d54f3cf2-->
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            <div class="m-4">
+              <%= render 'users/user', user: @user %>
+            </div>
+            <div class="m-4">
+              <%= render 'books/book', book: @book %>
+            </div>
+          </div>
+            <%= yield %>
+        </div>
+      </div>
+      <% end %>
+    <% else %>
+      <%= yield %>
+    <% end %>
     <footer>
       <div class="container mt-5">
         <div class="row">

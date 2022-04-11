@@ -1,34 +1,24 @@
 <h1>Users#show</h1>
-<% if flash[:notice] %>
+<% if false %>
+  <% if flash[:notice] %>
     <%= flash[:notice] %>
+  <% end %>
+
+<div class="row">
+  <div class="col-4">
+    <%= render 'users/user', user: @user %>
+    <%= render 'books/book', book: @book %>
+  </div>
+  <div class="col-8">
 <% end %>
 
-<div>
-  <h3>User info</h3>
-  <div><%= image_tag @user.get_profile_image %></div>
-  <p><%= @user.name %></p>
-  <p><%= @user.introduction %></p>
-  <p><%= link_to "edit",edit_user_path(@user.id) %></p>
-</div>
 
-<div>
-  <h3>NewBook</h3>
-  <%= form_with model: @book,method: :post do |f| %>
-  <p>title</p>
-  <%= f.text_field :title %>
-  <p>introduction</p>
-  <%= f.text_field :body %>
-  <%= f.submit "submit" %>
-  <% end %>
-</div>
-
-
-<div>
-  <h3>Books</h3>
+<h2>Books</h2>
   <p>title</p>
   <% @books.each do |book| %>
     <%= image_tag book.user.get_profile_image %>
     <p><%= link_to book.title,book_path(book.id) %></p>
     <p><%= book.body %></p>
   <% end %>
-</div>
+<!--  </div>-->
+<!--</div>-->

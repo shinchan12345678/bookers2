@@ -1,26 +1,36 @@
-<h1>Book#show</h1>
-
-<div>
-  <h3>User info</h3>
-  <div><%= image_tag @user.get_profile_image %></div>
-  <p><%= @user.name %></p>
-  <p><%= @user.introduction %></p>
-  <p><%= link_to "edit",edit_user_path(@user.id) %></p>
+<div class="col-8">
+  <h2>Books</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th><%= image_tag @book.user.get_profile_image %></th>
+        <th class="align-middle">
+          <%= link_to book_path(@book.id) do %>
+          <%= @book.title %>
+          <% end %>
+        </th>
+        <th class="align-middle"><%= @book.body %></th>
+        <% if @book.user.id==current_user.id %>
+          <th class="align-middle"><%= link_to "destroy",method: :destroy %></th>
+          <th class="align-middle"><%= link_to "edit",edit_book_path(@book) %></th>
+        <% else %>
+          <th></th>
+          <th></th>
+        <% end %>
+      </tr>
+    </thead>
+  </table>
 </div>
 
 
-<div>
-  <h3>NewBook</h3>
-  <%= form_with model: @book_create,method: :post do |f| %>
-  <p>title</p>
-  <%= f.text_field :title %>
-  <p>introduction</p>
-  <%= f.text_field :body %>
-  <%= f.submit "submit" %>
-  <% end %>
-</div>
-
-<div>
+<% if false %>
   <h3>Books</h3>
   <p>title</p>
     <%= image_tag @book.user.get_profile_image %>
@@ -31,3 +41,4 @@
       <p><%= link_to "edit",edit_book_path(@book) %></p>
     <% end %>
 </div>
+<% end %>

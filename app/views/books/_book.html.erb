@@ -1,0 +1,57 @@
+    <h3>New Book</h3>
+    <%= form_with model: Book.new ,method: :post do |f| %>
+      <div>
+        <label class="form-label" for="book_title">Title</label>
+        <%= f.text_field :title,id: "book_title",class: "form-control mb-3"  %>
+      </div>
+      <div>
+        <label class="form-label"for="book_body">Opinion</label>
+        <%= f.text_field :body,id: "book_body",class: "form-control mb-3" %>
+      </div>
+      <div>
+        <%= f.submit "Create Book",class: "btn btn-success" %>
+      </div>
+    <% end %>
+
+<!--以下、置き換え前の記述-->
+<% if false %>
+    <!--users/index.html.erb-->
+    <h3>NewBook</h3>
+    <%= form_with model: @book,method: :post do |f| %>
+    <p>title</p>
+    <%= f.text_field :title %>
+    <p>introduction</p>
+    <%= f.text_field :body %>
+    <%= f.submit "submit" %>
+    <% end %>
+
+    <!--users/show.html.erb-->
+    <h3>NewBook</h3>
+    <%= form_with model: @book,method: :post do |f| %>
+    <p>title</p>
+    <%= f.text_field :title %>
+    <p>introduction</p>
+    <%= f.text_field :body %>
+    <%= f.submit "submit" %>
+    <% end %>
+
+    <!--books/index.html.erb-->
+    <h3>NewBook</h3>
+    <%= form_with model: @book,method: :post do |f| %>
+    <p>title</p>
+    <%= f.text_field :title %>
+    <p>introduction</p>
+    <%= f.text_field :body %>
+    <%= f.submit "submit" %>
+    <% end %>
+
+    <!--books/show.html.erb-->
+    <h3>NewBook</h3>
+    <%= form_with model: @book_create,method: :post do |f| %>
+    <p>title</p>
+    <%= f.text_field :title %>
+    <p>introduction</p>
+    <%= f.text_field :body %>
+    <%= f.submit "submit" %>
+    <% end %>
+<% end %>
