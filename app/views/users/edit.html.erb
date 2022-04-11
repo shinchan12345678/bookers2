@@ -1,5 +1,15 @@
 <h3>Userinfo</h3>
 <div>
+<% if @user.errors.any? %>
+  <p><%= @user.errors.count %>件のエラーが発生しました</p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+<div>
 <%= form_with model: @user do |f| %>
 <!--< form_with model: User.new do |f| %>-->
   <%= f.file_field :image %>

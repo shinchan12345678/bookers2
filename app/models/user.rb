@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one_attached :image
   has_many :books, dependent: :destroy
+  
+  validates :name,presence: true
 
   #railsで画像を処理するため、テーブルに画像を保存する必要がある
   def get_image
