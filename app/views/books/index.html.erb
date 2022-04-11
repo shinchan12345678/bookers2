@@ -24,7 +24,7 @@
   <p>title</p>
   <%= f.text_field :title %>
   <p>introduction</p>
-  <%= f.text_field :opinion %>
+  <%= f.text_field :body %>
   <%= f.submit "submit" %>
   <% end %>
 </div>
@@ -35,7 +35,7 @@
   <% @books.each do |book| %>
     <%= image_tag book.user.get_profile_image %>
     <p><%= book.title %></p>
-    <p><%= book.opinion %></p>
+    <p><%= book.body %></p>
     <p><%= link_to "show",book_path(book.id) %></p>
     <p><%= link_to "edit",edit_book_path(book.id) %></p>
   <% end %>

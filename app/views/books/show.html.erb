@@ -15,7 +15,7 @@
   <p>title</p>
   <%= f.text_field :title %>
   <p>introduction</p>
-  <%= f.text_field :opinion %>
+  <%= f.text_field :body %>
   <%= f.submit "submit" %>
   <% end %>
 </div>
@@ -25,7 +25,7 @@
   <p>title</p>
     <%= image_tag @book.user.get_profile_image %>
     <p><%= @book.title %></p>
-    <p><%= @book.opinion %></p>
+    <p><%= @book.body %></p>
     <% if @book.user.id==current_user.id %>
       <p><%= link_to "destroy",method: :destroy %></p>
       <p><%= link_to "edit",edit_book_path(@book) %></p>
