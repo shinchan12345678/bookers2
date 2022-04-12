@@ -96,15 +96,18 @@
     <% flash.each do |key,value| %>
       <%= content_tag(:div,value,class: "#{key}") %>
     <% end %>
-
-
-    <% if user_signed_in? %>
-      <% unless request.path==root_path %>
+    
+    
+    
+    <% if false %>
+    <% unless (request.path==root_path) or (request.path==about_path) or (request.path.include?("edit")) or
+    (request.path.include?("sign_up")) or (request.path.include?("sign_in"))%>
       <!--##参考-->
       <!--https://qiita.com/Yohei_Shiina/items/ed39dfd74895d54f3cf2-->
+      <% if user_signed_in? %>
       <div class="container">
         <div class="row">
-          <div class="col-4">
+          <div class="col-md-4">
             <div class="m-4">
               <%= render 'users/user', user: @user %>
             </div>
@@ -119,10 +122,14 @@
     <% else %>
       <%= yield %>
     <% end %>
+    <% end %>
+    
+    
+    
     <footer>
       <div class="container mt-5">
         <div class="row">
-          <p class="mx-auto">CopyRight furuta shinya</p>
+          <p class="mx-auto">CopyRight  FurutaShinya</p>
         </div>
       </div>
     </footer>
