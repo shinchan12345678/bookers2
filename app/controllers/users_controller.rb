@@ -21,14 +21,14 @@ class UsersController < ApplicationController
       flash[:notice]="You have updated user successfully."
       redirect_to user_path(current_user.id)
     else
+      render :edit
       ##バリデーションで実装
       # flash[:alert]="failed update"
       # redirect_to edit_user_path(@user.id)
-    #   @user.errors.full_messages.each_with_index do |messeage,i|
-    #     flash[:i]=messeage
-    #   end
-    #   redirect_to edit_user_path(@user.id)
-      render :edit
+      #   @user.errors.full_messages.each_with_index do |messeage,i|
+      #     flash[:i]=messeage
+      #   end
+      #   redirect_to edit_user_path(@user.id)
     end
 
   end

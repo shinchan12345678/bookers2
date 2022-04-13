@@ -14,9 +14,9 @@ class BooksController < ApplicationController
       flash[:notice]="You have created book successfully."
       redirect_to book_path(@book.id)
     else
+      render :index
       ##バリデーションで実装
       # flash[:alert]="create failed"
-      render :index
     end
   end
 
@@ -38,9 +38,8 @@ class BooksController < ApplicationController
       flash[:notice]="You have updated book successfully."
       redirect_to book_path(@book.id)
     else
-      ##バリデーションで実装
       render :edit
-      
+      ##バリデーションで実装
       # @book.errors.full_messages.each_with_index do |messeage,i|
       #   flash[:i]=messeage
       # end
