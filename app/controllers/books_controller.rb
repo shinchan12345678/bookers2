@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     @book=Book.new(book_params)
     @book.user_id=current_user.id
     if @book.save
-      flash[:notice]="create sucsess"
+      flash[:notice]="You have created book successfully."
       redirect_to book_path(@book.id)
     else
       ##バリデーションで実装
@@ -39,10 +39,12 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       ##バリデーションで実装
-      @book.errors.full_messages.each_with_index do |messeage,i|
-        flash[:i]=messeage
-      end
-      redirect_to edit_book_path(@book.id)
+      render :edit
+      
+      # @book.errors.full_messages.each_with_index do |messeage,i|
+      #   flash[:i]=messeage
+      # end
+      # redirect_to edit_book_path(@book.id)
     end
   end
 

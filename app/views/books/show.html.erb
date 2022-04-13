@@ -1,42 +1,55 @@
-<div class="col-md-8">
-  <h2 class="m-3">Book detail</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Opinion</th>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr>
-        <th>
-          <p><%= image_tag @book.user.get_profile_image %></p>
-          <p><%= link_to @book.user.name, user_path(@book.user) %></p>
-        </th>
-        <th class="align-middle">
-          <%= link_to book_path(@book.id) do %>
-          <%= @book.title %>
-          <% end %>
-        </th>
-        <th class="align-middle"><%= @book.body %></th>
-        <% if @book.user.id==current_user.id %>
-          <th class="align-middle">
-            <%= link_to edit_book_path(@book) do %>
-              <span class="btn btn-success">Edit</span>
-            <% end %>
-          </th>
-          <th class="align-middle">
-            <%= link_to book_path(@book.id), method: :delete , "data-confirm" => "本当に削除しますか？"  do %>
-              <span class="btn btn-danger">Destroy</span>
-            <% end %>
-          </th>
-        <% else %>
-          <th></th>
-          <th></th>
-        <% end %>
-      </tr>
-    </thead>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="m-4">
+        <%= render 'users/user', user: @user %>
+      </div>
+      <div class="m-4">
+        <%= render 'books/book', book: @book %>
+      </div>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2 class="m-3">Book detail</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>
+                <p><%= image_tag @book.user.get_profile_image %></p>
+                <p><%= link_to @book.user.name, user_path(@book.user) %></p>
+              </th>
+              <th class="align-middle">
+                <%= link_to book_path(@book.id) do %>
+                  <%= @book.title %>
+                <% end %>
+              </th>
+              <th class="align-middle"><%= @book.body %></th>
+              <% if @book.user.id==current_user.id %>
+              <th class="align-middle">
+                <%= link_to edit_book_path(@book) do %>
+                  <span class="btn btn-success">Edit</span>
+                <% end %>
+              </th>
+              <th class="align-middle">
+                <%= link_to book_path(@book.id), method: :delete , "data-confirm" => "本当に削除しますか？"  do %>
+                  <span class="btn btn-danger">Destroy</span>
+                <% end %>
+              </th>
+              <% else %>
+              <th></th>
+              <th></th>
+              <% end %>
+            </tr>
+          </thead>
+        </table>
+    </div>
+  </div>
 </div>
+
 

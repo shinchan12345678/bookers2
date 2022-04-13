@@ -28,14 +28,14 @@
           <li class="nav-item">
             <%= link_to user_path(current_user.id) do %>
             <span class='nav-link text-light'>
-              <i class="fa-solid fa-house-user"></i> Home
+              <i class="fas fa-home"></i> Home
             </span>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to users_path do %>
             <span class='nav-link text-light'>
-              <i class="fa-solid fa-users"></i> Users
+              <i class="fas fa-users"></i> Users
             </span>
             <% end %>
           </li>
@@ -45,7 +45,7 @@
               <!--なぜか本のアイコンを読み込まない-->
               <!--<i class="fa-solid fa-book-arrow-right"></i> Books-->
               <!--<i class="fa-solid fa-books"></i> Books-->
-              <i class="fa-solid fa-bookmark"></i> Books
+              <i class="fas fa-book-open"></i> Books
               <!--<i class="fa-solid fa-users"></i> Books-->
               <!--<i class="fa-solid fa-book-blank"></i> Books-->
             </span>
@@ -54,7 +54,7 @@
           <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete do %>
             <span class='nav-link text-light'>
-              <i class="fa-solid fa-right-from-bracket"></i> Log out
+              <i class="fas fa-sign-out-alt"></i> Log out
             </span>
             <% end %>
           </li>
@@ -62,28 +62,28 @@
           <li class="nav-item">
             <%=link_to root_path do %>
             <span class='nav-link text-light'>
-              <i class="fa-solid fa-house-user"></i> Home
+              <i class="fas fa-home"></i> Home
             </span>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to about_path do %>
             <span  class= 'nav-link text-light'>
-              <i class="fa-solid fa-link"></i> About
+              <i class="fas fa-link"></i> About
             </span>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to new_user_registration_path do %>
             <span class='nav-link text-light'>
-              <i class="fa-solid fa-user-plus"></i> Sign up
+              <i class="fas fa-user-plus"></i> Sign up
             </span>
             <% end %>
           </li>
           <li class="nav-item">
             <%= link_to new_user_session_path do %>
             <span class='nav-link text-light'>
-              <i class="fa-solid fa-right-to-bracket"></i> Log in
+              <i class="fas fa-sign-in-alt"></i> Log in
             </span>
             <% end %>
           </li>
@@ -96,36 +96,9 @@
     <% flash.each do |key,value| %>
       <%= content_tag(:div,value,class: "#{key}") %>
     <% end %>
-    
-    
-    
-    <% if false %>
-    <% unless (request.path==root_path) or (request.path==about_path) or (request.path.include?("edit")) or
-    (request.path.include?("sign_up")) or (request.path.include?("sign_in"))%>
-      <!--##参考-->
-      <!--https://qiita.com/Yohei_Shiina/items/ed39dfd74895d54f3cf2-->
-      <% if user_signed_in? %>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="m-4">
-              <%= render 'users/user', user: @user %>
-            </div>
-            <div class="m-4">
-              <%= render 'books/book', book: @book %>
-            </div>
-          </div>
-            <%= yield %>
-        </div>
-      </div>
-      <% end %>
-    <% else %>
-      <%= yield %>
-    <% end %>
-    <% end %>
-    
-    
-    
+
+    <%= yield %>
+
     <footer>
       <div class="container mt-5">
         <div class="row">
