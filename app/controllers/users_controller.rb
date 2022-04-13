@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       render :edit
       ##バリデーションで実装
       # flash[:alert]="failed update"
-      # redirect_to edit_user_path(@user.id)
+      
       #   @user.errors.full_messages.each_with_index do |messeage,i|
       #     flash[:i]=messeage
       #   end
