@@ -1,7 +1,7 @@
   <h2>User info</h2>
   <div><%= image_tag user.get_profile_image %></div>
   <table class="table">
-    <thead>
+    <tbody>
       <tr>
         <th>name</th>
         <th><%= user.name %></th>
@@ -10,41 +10,10 @@
         <th>introduction</th>
         <th><%= user.introduction %></th>
       </tr>
-    </thead>
+    </tbody>
   </table>
-  <div class="btn btn-outline-secondary btn-block">
+  <div class="btn btn-outline-secondary btn-block text-center">
     <%= link_to edit_user_path(user.id) do %>
       <span><i class="fas fa-user-cog" style="color: #b3b3b3;"></i></span>
     <% end %>
   </div>
-
-<!--以下、置き換え前の記述-->
-<% if false %>
-  <!--users/index.html.erb-->
-  <h3>User info</h3>
-  <div><%= image_tag @user.get_profile_image %></div>
-  <p><%= @user.name %></p>
-  <p><%= @user.introduction %></p>
-  <p><%= link_to "edit",edit_user_path(@user.id) %></p>
-
-  <!--users/show.html.erb-->
-  <h3>User info</h3>
-  <div><%= image_tag @user.get_profile_image %></div>
-  <p><%= @user.name %></p>
-  <p><%= @user.introduction %></p>
-  <p><%= link_to "edit",edit_user_path(@user.id) %></p>
-
-  <!--books/index.html.erb-->
-  <h3>User info</h3>
-  <div><%= image_tag @user.get_profile_image %></div>
-  <p><%= @user.name %></p>
-  <p><%= @user.introduction %></p>
-  <p><%= link_to "edit",edit_user_path(@user.id) %></p>
-
-  <!--books/show.html.erb-->
-  <h3>User info</h3>
-  <div><%= image_tag @user.get_profile_image %></div>
-  <p><%= @user.name %></p>
-  <p><%= @user.introduction %></p>
-  <p><%= link_to "edit",edit_user_path(@user.id) %></p>
-<% end %>
